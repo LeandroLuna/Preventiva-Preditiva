@@ -1,7 +1,5 @@
-#define vcc 5 // definimos a variaveis para o hardware
-#define gnd 4
-#define pino_D0 3
-#define analog 2
+#define pino_D0 9
+#define analog 5
 
 int rpm; // definimos as variaveis para o software
 volatile byte pulsos;
@@ -11,22 +9,22 @@ unsigned int pulsos_por_volta = 20; // varia o pulso ( mas vai de acordo com o d
 
 void contador()
 {
-    //adiociona um contador
+    //adiciona um contador
     pulsos++;
 }
 
 void setup()
 {
-    Serial.begin(115200);
+    Serial.begin(9600);
 
-    pinMode(vcc, OUTPUT);
-    pinMode(gnd, OUTPUT);
+    //pinMode(vcc, OUTPUT);
+    //pinMode(gnd, OUTPUT);
     pinMode(pino_D0, INPUT);
     pinMode(analog, INPUT);
 
-    digitalWrite(vcc, HIGH);
-    digitalWrite(gnd, LOW);
-
+    //digitalWrite(vcc, HIGH);
+    //digitalWrite(gnd, LOW);
+ 
     //Interrupcao  referente ao pino 3
     //Aciona o contador a cada pulso
     attachInterrupt(1, contador, FALLING);
