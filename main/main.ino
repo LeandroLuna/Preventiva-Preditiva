@@ -78,6 +78,7 @@ void loop()
   delay(1500);
   countTrueCommand++;                    // Passa informações para controle
   sendCommand("AT+CIPCLOSE=0", 5, "OK"); // Fecha as conexões novamente
+  Serial.println("Temperatura: " + temperatura + "\nHumidade: " + humidade + "\nCorrente: " + corrente + "\nRPM: " + rpm);
   delay(15000);                          // Tempo para ser reenviado novos dados para o servidor. A conta de versão estudante possibilita o envio de novas informações para o site a cada 15 segundos, podendo-se chegar a até mesmo a 1 segundo com a versão licensiada premium comercial. **Saber mais: https://thingspeak.com/prices/thingspeak_standard
 }
 void sendCommand(String command, int maxTime, char readReplay[]) // Toda essa função garantirá que a informação foi enviada corretamente ao servidor
